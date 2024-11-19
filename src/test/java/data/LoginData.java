@@ -1,4 +1,4 @@
-package data;
+/*package data;
 
 import lombok.Data;
 
@@ -6,4 +6,4 @@ import lombok.Data;
 public class LoginData {
     String userName = "test",
             password = "TTTttt111!";
-}
+}*/

@@ -1,4 +1,4 @@
-package api;
+/*package api;
 
 import data.LoginData;
 import models.LoginResponseModel;
@@ -28,4 +28,4 @@ public class AuthorizedApi {
 
         return response;
     }
-}
+}*/

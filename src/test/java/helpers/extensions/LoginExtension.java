@@ -1,10 +1,11 @@
 package helpers.extensions;
 
 
-import api.AuthorizedApi;
+import api.AccountApi;
+//import api.AuthorizedApi;
 
-import data.AuthorizedData;
-import data.LoginData;
+//import data.AuthorizedData;
+//import data.LoginData;
 import models.LoginResponseModel;
 import org.junit.jupiter.api.extension.BeforeEachCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
@@ -17,16 +18,18 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static io.qameta.allure.Allure.step;
 
 public class LoginExtension implements BeforeEachCallback {
+    public static LoginResponseModel cookies;
 
 
     @Override
     public void beforeEach(ExtensionContext context) {
-        LoginData loginData = new LoginData();
-        LoginResponseModel cookies = AuthorizedApi.getAuthorizationCookie();
+        //LoginData loginData = new LoginData();
+        cookies = AccountApi.getAuthorizationCookie();
+        //LoginResponseModel cookies = AuthorizedApi.getAuthorizationCookie();
 
-        AuthorizedData.USER_ID = cookies.getUserId();
+        /*AuthorizedData.USER_ID = cookies.getUserId();
         AuthorizedData.EXPIRES = cookies.getExpires();
-        AuthorizedData.USER_TOKEN = cookies.getToken();
+        AuthorizedData.USER_TOKEN = cookies.getToken();*/
 
         step("Добавить cookie (в ответе) из браузера", () -> {
             open("/favicon.ico");
@@ -37,7 +40,7 @@ public class LoginExtension implements BeforeEachCallback {
 
         step("Проверить успешный вход в учетную запись", () -> {
                     open("/profile");
-                    $("#userName-value").shouldHave(text(loginData.getUserName()));
+                    $("#userName-value").shouldHave(text(System.getProperty("loginUser")));
                 }
         );
 
