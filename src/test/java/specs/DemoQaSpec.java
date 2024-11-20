@@ -32,7 +32,6 @@ public class DemoQaSpec {
             .build();
     public static RequestSpecification createBookStoreRequestSpec = with()
             .filter(withCustomTemplates())
-            //.contentType(JSON)
             .log().all();
 
 

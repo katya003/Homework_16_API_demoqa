@@ -2,10 +2,6 @@ package helpers.extensions;
 
 
 import api.AccountApi;
-//import api.AuthorizedApi;
-
-//import data.AuthorizedData;
-//import data.LoginData;
 import models.LoginResponseModel;
 import org.junit.jupiter.api.extension.BeforeEachCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
@@ -23,13 +19,8 @@ public class LoginExtension implements BeforeEachCallback {
 
     @Override
     public void beforeEach(ExtensionContext context) {
-        //LoginData loginData = new LoginData();
-        cookies = AccountApi.getAuthorizationCookie();
-        //LoginResponseModel cookies = AuthorizedApi.getAuthorizationCookie();
 
-        /*AuthorizedData.USER_ID = cookies.getUserId();
-        AuthorizedData.EXPIRES = cookies.getExpires();
-        AuthorizedData.USER_TOKEN = cookies.getToken();*/
+        cookies = AccountApi.getAuthorizationCookie();
 
         step("Добавить cookie (в ответе) из браузера", () -> {
             open("/favicon.ico");

@@ -3,9 +3,6 @@ package api;
 import models.GetBookListModel;
 import models.LoginResponseModel;
 import models.LoginUserModel;
-
-//import static data.AuthorizedData.USER_ID;
-//import static data.AuthorizedData.USER_TOKEN;
 import static helpers.extensions.LoginExtension.cookies;
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;

@@ -2,11 +2,7 @@ package api;
 
 import models.IsbnModel;
 import models.AddBookListRequestModel;
-
 import java.util.List;
-
-//import static data.AuthorizedData.USER_ID;
-//import static data.AuthorizedData.USER_TOKEN;
 import static helpers.extensions.LoginExtension.cookies;
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
@@ -30,10 +26,6 @@ public class BookStoreApi {
 
         IsbnModel isbnModel = new IsbnModel(isbn);
         AddBookListRequestModel request = new AddBookListRequestModel(cookies.getUserId(), List.of(isbnModel));
-        /*isbnModel.setIsbn(isbn);
-        request.setUserId(USER_ID);
-        request.setCollectionOfIsbns(List.of(isbnModel));*/
-
 
         step("Добавить книгу в корзину", () -> {
             given(createRequestSpec)
